@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -6,33 +7,33 @@ html, body {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom right, #e6f0ff, #ffffff);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #2c3e50;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #e6f0ff, #ffffff);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+  text-align: center;
 }
 
 .logo-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 15px;
 }
 
 .material-icons.logo-icon {
-    font-size: 40px;  /* Increased from 2.5rem */
-    color: #4a90e2;
+  font-size: 40px; /* Increased from 2.5rem */
+  color: #4a90e2;
 }
 
 .logo-title {
-    font-size: 2.8rem;  /* Increased from 2rem */
-    color: #2a4365;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: 1px;
+  font-size: 2.8rem; /* Increased from 2rem */
+  color: #2a4365;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .container {
@@ -40,7 +41,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center; /* vertical centering */
-  align-items: center;     /* horizontal centering */
+  align-items: center; /* horizontal centering */
   padding: 20px;
 }
 
@@ -51,92 +52,92 @@ body {
 }
 
 h1 {
-    font-size: 2.4rem;
-    margin-bottom: 10px;
-    color: #2a4365;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #2a4365;
 }
 
 .subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #666;
-    margin-top: -10px;
-    margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 25px;
 }
 .custom-file-upload {
-    display: inline-block;
-    padding: 12px 24px;
-    cursor: pointer;
-    background-color: #4a90e2;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
+  display: inline-block;
+  padding: 12px 24px;
+  cursor: pointer;
+  background-color: #4a90e2;
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
 }
 
 .custom-file-upload:hover {
-    background-color: #3b7dc4;
+  background-color: #3b7dc4;
 }
 
 input[type="file"] {
-    display: none;
+  display: none;
 }
 
 .image-preview {
-    margin: 20px auto;
-    max-width: 350px;
-    background: #f4f6f8;
-    border: 2px dashed #ccc;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin: 20px auto;
+  max-width: 350px;
+  background: #f4f6f8;
+  border: 2px dashed #ccc;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .preview-img {
-    max-width: 100%;
-    max-height: 250px;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  max-height: 250px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .image-preview span {
-    color: #999;
-    font-size: 0.95rem;
+  color: #999;
+  font-size: 0.95rem;
 }
 
 button {
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #38a169;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: 0.3s ease;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #38a169;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
 }
 
 button:hover {
-    background-color: #2f855a;
+  background-color: #2f855a;
 }
 
 .result-box {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    background-color: #e6fffa;
-    padding: 15px;
-    border: 1px solid #b2f5ea;
-    border-radius: 10px;
-    color: #276749;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  background-color: #e6fffa;
+  padding: 15px;
+  border: 1px solid #b2f5ea;
+  border-radius: 10px;
+  color: #276749;
 }
 
 .result-box:empty {
-    display: none;
+  display: none;
 }
 
 footer {
@@ -148,24 +149,24 @@ footer {
 }
 
 .file-name {
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 8px;
-    word-break: break-word;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+  word-break: break-word;
 }
 
 .remove-btn {
-    margin-top: 10px;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    color: #fff;
-    background-color: #e53e3e;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: #e53e3e;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .remove-btn:hover {
-    background-color: #c53030;
+  background-color: #c53030;
 }
