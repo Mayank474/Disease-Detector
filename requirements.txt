@@ -1,0 +1,9 @@
+Flask
+tensorflow==2.18.0
+opencv-python
+numpy
+matplotlib
+seaborn
+pandas
+Pillow
+joblib     

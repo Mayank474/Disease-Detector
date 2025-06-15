@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Detection from X-Ray</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Disease Detection from X-Ray</h1>
+    <form id="upload-form">
+        <input type="file" name="file" id="file" accept="image/*" required />
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        const form = document.getElementById("upload-form");
+        const resultDiv = document.getElementById("result");
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            resultDiv.innerText = "Predicting...";
+
+            const response = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.prediction) {
+                resultDiv.innerText = "Predicted Disease: " + data.prediction;
+            } else {
+                resultDiv.innerText = "Error: " + data.error;
+            }
+        };
+    </script>
+</body>
+</html>
