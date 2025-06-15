@@ -1,3 +1,10 @@
+This is a disease detection website, where i have tried to integrate a ML model at the backend. 
+Based on the x-ray image of lung, this model predicts the possible disease under 4 categories :   
+1.Normal  
+2.Covid-19  
+3.Bacterial Pneumonia  
+4.Viral Pneumonia  
+
 Steps to use this repo:
 
 1. Create virtual Python environment: python -m venv venv.
