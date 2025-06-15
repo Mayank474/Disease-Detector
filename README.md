@@ -5,6 +5,8 @@ Based on the x-ray image of lung, this model predicts the possible disease under
 3.Bacterial Pneumonia  
 4.Viral Pneumonia  
 
+![Website Demo](./demo/disease-detector.gif)
+
 Steps to use this repo:
 
 1. Create virtual Python environment: python -m venv venv.
