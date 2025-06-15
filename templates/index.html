@@ -1,39 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Disease Detection from X-Ray</title>
-    <link rel="stylesheet" href="/static/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disease Detection from X-Ray</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <h1>Disease Detection from X-Ray</h1>
+<div class="page-wrapper">
+   <div class="container"> 
+  <div class="logo-bar">
+  <span class="logo-icon material-icons">psychology</span>
+  <h1 class="logo-title">XRayMind</h1>
+</div>
+<p class="subtitle">AI-Powered Disease Detection from X-Rays</p>
+
     <form id="upload-form">
-        <input type="file" name="file" id="file" accept="image/*" required />
-        <button type="submit">Predict</button>
+      <label for="file-upload" class="custom-file-upload">
+        📁 Choose X-Ray Image
+      </label>
+      <input type="file" id="file-upload" accept="image/*" required />
+      
+      <div class="image-preview" id="imagePreview">
+  <span>Image preview will appear here</span>
+  <img src="" alt="Image Preview" class="preview-img" hidden />
+  <p id="file-name" class="file-name" hidden></p>
+  <button type="button" class="remove-btn" id="removeBtn" hidden>❌ Remove</button>
+</div>
+
+      <button type="submit">🔍 Predict Disease</button>
     </form>
-    <div id="result"></div>
 
-    <script>
-        const form = document.getElementById("upload-form");
-        const resultDiv = document.getElementById("result");
+    <div id="result" class="result-box"></div>
+  </div>
+</div>
 
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            resultDiv.innerText = "Predicting...";
+  <footer>
+    Powered by TensorFlow · Flask · © 2025 <br>
+    Created with ❤️ by Mayank.
+  </footer>
+  </div>
 
-            const response = await fetch("/predict", {
-                method: "POST",
-                body: formData
-            });
+  <script>
+  const form = document.getElementById("upload-form");
+  const fileInput = document.getElementById("file-upload");
+  const resultBox = document.getElementById("result");
+  const imagePreview = document.querySelector("#imagePreview img");
+  const fileNameText = document.getElementById("file-name");
+  const removeBtn = document.getElementById("removeBtn");
 
-            const data = await response.json();
+  // Show image preview
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        imagePreview.src = reader.result;
+        imagePreview.hidden = false;
+        fileNameText.textContent = file.name;
+        fileNameText.hidden = false;
+        removeBtn.hidden = false;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-            if (data.prediction) {
-                resultDiv.innerText = "Predicted Disease: " + data.prediction;
-            } else {
-                resultDiv.innerText = "Error: " + data.error;
-            }
-        };
-    </script>
+  // Remove preview and reset file input
+  removeBtn.addEventListener("click", () => {
+    fileInput.value = "";
+    imagePreview.src = "";
+    imagePreview.hidden = true;
+    fileNameText.hidden = true;
+    removeBtn.hidden = true;
+    resultBox.innerHTML = ""; // Optional: Clear prediction result
+  });
+
+  // Handle form submit and send image to backend
+  form.onsubmit = async function (e) {
+    e.preventDefault();
+    const file = fileInput.files[0];
+    if (!file) return alert("Please select an image before submitting.");
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    resultBox.innerHTML = "⏳ Predicting...";
+
+    try {
+      const response = await fetch("/predict", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      resultBox.innerHTML = "🧬 Prediction: <strong>" + result.prediction + "</strong>";
+    } catch (error) {
+      resultBox.innerHTML = "❌ Error: Unable to get prediction.";
+      console.error("Prediction error:", error);
+    }
+  };
+</script>
+
 </body>
 </html>
